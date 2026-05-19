@@ -1,4 +1,6 @@
 # AI Ecommerce Assistant
+## Streamlit Prototype
+Interactive ecommerce workflow prototype built with Streamlit
 ## Live Workflow Preview
 
 See:
