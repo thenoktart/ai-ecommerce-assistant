@@ -10,9 +10,7 @@ st.set_page_config(
 # SIDEBAR
 st.sidebar.title("AI Ecommerce Assistant")
 
-tool = st.sidebar.selectbox
-
-   page = st.sidebar.radio(
+page = st.sidebar.radio(
     "Navigation",
     [
         "Market Intelligence",
