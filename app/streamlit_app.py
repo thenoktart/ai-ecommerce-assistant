@@ -10,7 +10,8 @@ st.set_page_config(
 # SIDEBAR
 st.sidebar.title("AI Ecommerce Assistant")
 
-tool = st.sidebar.selectbox(
+tool = st.sidebar.selectbox
+
    page = st.sidebar.radio(
     "Navigation",
     [
@@ -142,3 +143,13 @@ if page == "Dashboard":
     col1.metric("Global Demand", "23%", "Strong Growth")
     col2.metric("Competition", "Low")
     col3.metric("Premium Opp.", "High")
+if page == "Dashboard":
+
+    st.title("Dashboard")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric("Revenue", "$42,580", "+12.5%")
+    col2.metric("Users", "2,847", "+8.2%")
+    col3.metric("Orders", "1,294", "-3.1%")
+    col4.metric("Page Views", "45.2K", "+15.8%")
