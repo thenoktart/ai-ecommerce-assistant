@@ -58,7 +58,16 @@ style = st.selectbox(
 
 # BUTTON
 if st.button("Generate AI Content"):
+  st.markdown("## AI Performance Dashboard")
 
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric("Products Analyzed", "124")
+    col2.metric("SEO Score", "92%")
+    col3.metric("AI Generations", "356")
+    col4.metric("Time Saved", "18h")
+
+    st.markdown("---")
     st.success("AI Content Generated")
 
     generated_title = f"{style} {product} for Modern {category}"
