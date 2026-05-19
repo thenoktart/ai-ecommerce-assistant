@@ -113,7 +113,7 @@ if page == "Dashboard":
     col3.metric("Orders", "1,294", "-3.1%")
     col4.metric("Page Views", "45.2K", "+15.8%")
     #ANALYTICS
-    if page == "Analytics":
+if page == "Analytics":
 
     st.title("Analytics")
 
@@ -122,7 +122,7 @@ if page == "Dashboard":
         "Paid": [1000,7000,3000,2000]
     })
     #BATTLEFIELD
-    if page == "Battlefield":
+if page == "Battlefield":
 
     st.title("Battlefield")
 
@@ -132,7 +132,7 @@ if page == "Dashboard":
     st.warning("BrandX → Weak premium positioning")
     st.success("Opportunity detected in EU market")
     #MARKET INTELLIGENCE
-    if page == "Market Intelligence":
+if page == "Market Intelligence":
 
     st.title("Global Market Intelligence")
 
@@ -141,6 +141,7 @@ if page == "Dashboard":
     col1.metric("Global Demand", "23%", "Strong Growth")
     col2.metric("Competition", "Low")
     col3.metric("Premium Opp.", "High")
+
 if page == "Dashboard":
 
     st.title("Dashboard")
