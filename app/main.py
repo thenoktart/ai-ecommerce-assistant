@@ -35,6 +35,24 @@ print(result["title"])
 print("\nTAGS:")
 for tag in result["tags"]:
     print("-", tag)
+print("AI Ecommerce Assistant Started")
 
+product = input("Enter product name: ")
+
+title = f"Minimalist {product} for Modern Lifestyle"
+
+seo_keywords = [
+    "minimal",
+    "etsy seo",
+    "amazon listing",
+    "shopify product",
+]
+
+print("\nGenerated Product Title:")
+print(title)
+
+print("\nSuggested SEO Keywords:")
+for keyword in seo_keywords:
+    print("-", keyword)
 print("\nDESCRIPTION:")
 print(result["description"])
