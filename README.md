@@ -1,4 +1,14 @@
 # AI Ecommerce Assistant
+## Live Workflow Preview
+
+See:
+- app/main.py
+- app/demo-output.md
+- app/terminal-preview.md
+
+![Dashboard Preview](./dashboard-concept.png)
+
+An experimental AI-assisted ecommerce workflow system focused on product research, listing optimization, branding workflow generation, and automation.
 ![Dashboard Preview](./dashboard-concept.png)
 An experimental AI-assisted ecommerce workflow system focused on product research, listing optimization, branding workflows, SEO generation, and automation.
 
