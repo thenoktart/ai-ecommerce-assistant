@@ -60,54 +60,36 @@ style = st.selectbox(
 
 # BUTTON
 if st.button("Generate AI Content"):
-    
-    st.markdown("## AI Performance Dashboard")
 
-    col1, col2, col3, col4 = st.columns(4)
+    prompt = f"""
+    Generate ecommerce SEO content for this product.
 
-    col1.metric("Products Analyzed", "124")
-    col2.metric("SEO Score", "92%")
-    col3.metric("AI Generations", "356")
-    col4.metric("Time Saved", "18h")
+    Product: {product}
+    Category: {category}
+    Brand Style: {style}
 
-    st.markdown("---")
-    
-    st.success("AI Content Generated")
-
-    generated_title = f"{style} {product} for Modern {category}"
-
-    description = f"""
-    This {product} is designed for modern customers looking for
-    premium quality, clean aesthetics, and functional design.
-
-    Optimized for ecommerce listings, branding presentation,
-    and conversion-focused product pages.
+    Create:
+    - Product Title
+    - SEO Keywords
+    - Short Product Description
     """
 
-    keywords = [
-        f"{product} seo",
-        f"{product} amazon listing",
-        f"{style} {category}",
-        "shopify product",
-        "etsy seo",
-        "product optimization"
-    ]
+    response = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
 
-    # DASHBOARD METRICS
-    col1, col2, col3 = st.columns(3)
+    result = response.choices[0].message.content
 
-    col1.metric("SEO Score", "92")
-    col2.metric("Optimization", "High")
-    col3.metric("Marketplace", "Amazon + Etsy")
+    st.success("AI Content Generated")
 
-    st.markdown("---")
-
-    # TITLE
-    st.subheader("Generated Product Title")
-    st.code(generated_title)
-
-    # DESCRIPTION
-    st.subheader("Generated Product Description")
+    st.markdown("## Generated Content")
+    st.write(result)
     st.write(description)
 
     # KEYWORDS
