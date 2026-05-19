@@ -1,5 +1,5 @@
 # AI Ecommerce Assistant
-
+![Dashboard Preview](./dashboard-concept.png)
 An experimental AI-assisted ecommerce workflow system focused on product research, listing optimization, branding workflows, SEO generation, and automation.
 
 This repository explores how AI systems can improve ecommerce operations, digital product workflows, and online brand building.
