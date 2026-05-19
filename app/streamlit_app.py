@@ -11,18 +11,19 @@ st.set_page_config(
 st.sidebar.title("AI Ecommerce Assistant")
 
 tool = st.sidebar.selectbox(
-    "Choose Tool",
+   page = st.sidebar.radio(
+    "Navigation",
     [
-        "SEO Generator",
-        "Product Title Generator",
-        "Product Description",
-        "Keyword Ideas"
+        "Market Intelligence",
+        "Dashboard",
+        "Battlefield",
+        "Products",
+        "Analytics",
+        "Competitors",
+        "Trends",
+        "Settings"
     ]
 )
-
-st.sidebar.markdown("---")
-st.sidebar.write("AI Workflow Dashboard")
-st.sidebar.write("Built by thenoktart")
 
 # MAIN HEADER
 st.title("AI Ecommerce Assistant")
@@ -101,3 +102,43 @@ if st.button("Generate AI Content"):
     st.markdown("---")
 
     st.info("AI workflow completed successfully.")
+    # PAGE
+if page == "Dashboard":
+
+    st.title("Dashboard")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    col1.metric("Revenue", "$42,580", "+12.5%")
+    col2.metric("Users", "2,847", "+8.2%")
+    col3.metric("Orders", "1,294", "-3.1%")
+    col4.metric("Page Views", "45.2K", "+15.8%")
+    #ANALYTICS
+    if page == "Analytics":
+
+    st.title("Analytics")
+
+    st.line_chart({
+        "Organic": [2000,3000,5000,4000],
+        "Paid": [1000,7000,3000,2000]
+    })
+    #BATTLEFIELD
+    if page == "Battlefield":
+
+    st.title("Battlefield")
+
+    st.subheader("Competitor Analysis")
+
+    st.info("CompetitorA → Strong branding but higher pricing")
+    st.warning("BrandX → Weak premium positioning")
+    st.success("Opportunity detected in EU market")
+    #MARKET INTELLIGENCE
+    if page == "Market Intelligence":
+
+    st.title("Global Market Intelligence")
+
+    col1, col2, col3 = st.columns(3)
+
+    col1.metric("Global Demand", "23%", "Strong Growth")
+    col2.metric("Competition", "Low")
+    col3.metric("Premium Opp.", "High")
