@@ -255,18 +255,19 @@ if page == "Products":
             except:
                 rating = "No rating"
 
-            score = random.randint(65,95)
-            trend_score = random.randint(60,95)
-            competition_score = random.randint(20,60)
-            margin_score = random.randint(50,90)
+        score = random.randint(65,95)
 
-final_score = int(
-    (
-        trend_score * 0.4 +
-        margin_score * 0.4 -
-        competition_score * 0.2
-    )
-)
+        trend_score = random.randint(60,95)
+        competition_score = random.randint(20,60)
+        margin_score = random.randint(50,90)
+
+        final_score = int(
+            (
+                trend_score * 0.4 +
+                margin_score * 0.4 -
+                competition_score * 0.2
+            )
+        )
             st.markdown(f"""
           
 ### {title}
