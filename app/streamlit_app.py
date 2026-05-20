@@ -89,6 +89,7 @@ if st.button("Generate AI Content"):
     result = response.choices[0].message.content
 
     st.success("AI Content Generated")
+
 keywords = [
     "amazon seo",
     "ecommerce",
@@ -96,8 +97,8 @@ keywords = [
     "branding",
     "market analysis",
 ]
-st.markdown("## Generated Content")
-    st.write(result)
+   st.markdown("## Generated Content")
+   st.write(result)
 
     # KEYWORDS
     st.subheader("Suggested Keywords")
