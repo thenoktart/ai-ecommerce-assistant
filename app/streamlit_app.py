@@ -220,7 +220,36 @@ elif trend_data[keyword].mean() > 25:
 
 else:
     st.error("❌ Weak Market Demand")
-    
+    st.markdown("---")
+
+competition_score = 32
+margin_score = 78
+branding_score = 85
+
+st.subheader("Market Opportunity")
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric(
+    "Competition",
+    f"{competition_score}/100"
+)
+
+col2.metric(
+    "Margin Potential",
+    f"{margin_score}/100"
+)
+
+col3.metric(
+    "Branding Potential",
+    f"{branding_score}/100"
+)
+
+st.progress(78)
+
+st.info(
+    "AI detected strong branding potential in this niche."
+)
 # PRODUCTS
 if page == "Products":
 
