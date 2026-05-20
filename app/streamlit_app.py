@@ -268,8 +268,7 @@ if page == "Products":
                 competition_score * 0.2
             )
         )
-            st.markdown(f"""
-          
+          st.markdown(f"""
 ### {title}
 
 Price: ${price}
@@ -283,8 +282,9 @@ Competition: {competition_score}/100
 Margin Potential: {margin_score}/100
 
 Market Opportunity Score: {final_score}/100
-  """)
-st.progress(final_score)
+""")
+
+        st.progress(final_score)
     except:
 
         st.error(
