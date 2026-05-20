@@ -237,38 +237,39 @@ if page == "Products":
             try:
                 title = product.select_one(
                     "h2 span"
-                ).text
+                ).text.strip()
             except:
                 title = "No title"
 
             try:
                 price = product.select_one(
                     ".a-price-whole"
-                ).text
+                ).text.strip()
             except:
                 price = "N/A"
 
             try:
                 rating = product.select_one(
                     ".a-icon-alt"
-                ).text
+                ).text.strip()
             except:
                 rating = "No rating"
 
-        score = random.randint(65,95)
+            trend_score = random.randint(60,95)
 
-        trend_score = random.randint(60,95)
-        competition_score = random.randint(20,60)
-        margin_score = random.randint(50,90)
+            competition_score = random.randint(20,60)
 
-        final_score = int(
-            (
-                trend_score * 0.4 +
-                margin_score * 0.4 -
-                competition_score * 0.2
+            margin_score = random.randint(50,90)
+
+            final_score = int(
+                (
+                    trend_score * 0.4 +
+                    margin_score * 0.4 -
+                    competition_score * 0.2
+                )
             )
-        )
-          st.markdown(f"""
+
+            st.markdown(f"""
 ### {title}
 
 Price: ${price}
@@ -284,13 +285,15 @@ Margin Potential: {margin_score}/100
 Market Opportunity Score: {final_score}/100
 """)
 
-        st.progress(final_score)
+            st.progress(final_score)
+
+            st.markdown("---")
+
     except:
 
         st.error(
             "Amazon temporarily blocked requests."
         )
-
 # ======================================================
 # MARKET INTELLIGENCE
 # ======================================================
