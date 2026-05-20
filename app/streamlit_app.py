@@ -96,7 +96,7 @@ keywords = [
     "branding",
     "market analysis",
 ]
-    st.markdown("## Generated Content")
+st.markdown("## Generated Content")
     st.write(result)
 
     # KEYWORDS
