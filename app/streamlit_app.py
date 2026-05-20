@@ -167,3 +167,27 @@ if page == "Market Intelligence":
     col1.metric("Global Demand", "23%", "Strong Growth")
     col2.metric("Competition", "Low")
     col3.metric("Premium Opp.", "High")
+# PRODUCTS
+if page == "Products":
+
+    st.title("Trending Products")
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.image("https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500")
+        st.subheader("Steel Bottle")
+        st.write("Demand: 94")
+        st.progress(94)
+
+    with col2:
+        st.image("https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500")
+        st.subheader("Travel Mug")
+        st.write("Demand: 87")
+        st.progress(87)
+
+    with col3:
+        st.image("https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500")
+        st.subheader("Desk Organizer")
+        st.write("Demand: 79")
+        st.progress(79)
