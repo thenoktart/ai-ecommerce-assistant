@@ -250,6 +250,50 @@ st.progress(78)
 st.info(
     "AI detected strong branding potential in this niche."
 )
+st.markdown("---")
+
+st.subheader("Trending Product Analytics")
+
+products = [
+    {
+        "name": "Stainless Steel Bottle",
+        "demand": 94,
+        "growth": "+31%"
+    },
+    {
+        "name": "Travel Mug",
+        "demand": 87,
+        "growth": "+24%"
+    },
+    {
+        "name": "Desk Organizer",
+        "demand": 79,
+        "growth": "+18%"
+    }
+]
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric(
+        products[0]["name"],
+        products[0]["demand"],
+        products[0]["growth"]
+    )
+
+with col2:
+    st.metric(
+        products[1]["name"],
+        products[1]["demand"],
+        products[1]["growth"]
+    )
+
+with col3:
+    st.metric(
+        products[2]["name"],
+        products[2]["demand"],
+        products[2]["growth"]
+    )
 # PRODUCTS
 if page == "Products":
 
