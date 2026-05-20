@@ -83,3 +83,24 @@ Features:
 - Predictive analytics
 - AI-generated ecommerce insights
 - Dashboard reporting
+# MarketAI
+
+AI-powered ecommerce intelligence platform for:
+- Amazon sellers
+- Ecommerce brands
+- Product researchers
+
+## Features
+- Real Google Trends analysis
+- Amazon product scraping
+- Market opportunity scoring
+- Ecommerce analytics dashboard
+- AI-powered insights
+- Product trend tracking
+
+## Tech Stack
+- Python
+- Streamlit
+- Plotly
+- BeautifulSoup
+- PyTrends
