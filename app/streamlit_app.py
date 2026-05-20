@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from openai import OpenAI
+import requests
+from bs4 import BeautifulSoup
 
 # ======================================================
 # OPENAI
