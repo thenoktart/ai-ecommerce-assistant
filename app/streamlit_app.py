@@ -216,58 +216,6 @@ if page == "Battlefield":
 
 if page == "Products":
 
-     st.markdown("---")
-
-st.subheader("Amazon Product Research")
-
-search_term = st.text_input(
-    "Search Amazon Product",
-    "water bottle"
-)
-
-headers = {
-    "User-Agent":
-    "Mozilla/5.0"
-}
-
-url = f"https://www.amazon.com/s?k={search_term}"
-
-try:
-
-    response = requests.get(
-        url,
-        headers=headers
-    )
-
-    soup = BeautifulSoup(
-        response.content,
-        "html.parser"
-    )
-products = soup.find_all(
-    "span",
-    class_="a-size-medium"
-)
-
-st.markdown("---")
-
-st.subheader("Live Amazon Product Results")
-
-for product in products[:5]:
-
-    st.success(product.text)
-    st.success(
-        "Amazon market scan completed"
-    )
-
-    st.info(
-        f"Live search executed for: {search_term}"
-    )
-
-except:
-
-    st.error(
-        "Amazon temporarily blocked requests."
-    )
     st.title("Trending Products")
 
     col1, col2, col3 = st.columns(3)
@@ -278,9 +226,7 @@ except:
             "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500"
         )
 
-        st.subheader(
-            "Steel Bottle"
-        )
+        st.subheader("Steel Bottle")
 
         st.progress(94)
 
@@ -290,9 +236,7 @@ except:
             "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500"
         )
 
-        st.subheader(
-            "Travel Mug"
-        )
+        st.subheader("Travel Mug")
 
         st.progress(87)
 
@@ -302,11 +246,67 @@ except:
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
         )
 
-        st.subheader(
-            "Desk Organizer"
-        )
+        st.subheader("Desk Organizer")
 
         st.progress(79)
+
+    st.markdown("---")
+
+    st.subheader("Amazon Product Research")
+
+    search_term = st.text_input(
+        "Search Amazon Product",
+        "water bottle"
+    )
+
+    headers = {
+        "User-Agent": "Mozilla/5.0"
+    }
+
+    url = f"https://www.amazon.com/s?k={search_term}"
+
+    try:
+
+        response = requests.get(
+            url,
+            headers=headers
+        )
+
+        soup = BeautifulSoup(
+            response.content,
+            "html.parser"
+        )
+
+        products = soup.find_all(
+            "span",
+            class_="a-size-medium"
+        )
+
+        st.success(
+            "Amazon market scan completed"
+        )
+
+        st.info(
+            f"Live search executed for: {search_term}"
+        )
+
+        st.markdown("---")
+
+        st.subheader(
+            "Live Amazon Product Results"
+        )
+
+        for product in products[:5]:
+
+            st.success(
+                product.text
+            )
+
+    except:
+
+        st.error(
+            "Amazon temporarily blocked requests."
+        )
 
 # ======================================================
 # MARKET INTELLIGENCE
