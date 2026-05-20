@@ -3,5 +3,5 @@ openai
 pandas
 plotly
 pytrends
-beatifulsoup4
+beautifulsoup4
 requests
