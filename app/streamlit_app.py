@@ -283,7 +283,7 @@ Margin Potential: {margin_score}/100
 
 Market Opportunity Score: {final_score}/100
   """)
-             st.progress(final_score)
+st.progress(final_score)
     except:
 
         st.error(
