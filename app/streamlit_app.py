@@ -25,71 +25,7 @@ page = st.sidebar.radio(
         "Settings"
     ]
 )
-if page == "Dashboard":
 
-    st.title("Dashboard")
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.markdown("""
-        <div style="
-            background:#111827;
-            padding:20px;
-            border-radius:15px;
-        ">
-            <h2>$42,580</h2>
-            <p>Total Revenue</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col2:
-        st.markdown("""
-        <div style="
-            background:#111827;
-            padding:20px;
-            border-radius:15px;
-        ">
-            <h2>2,847</h2>
-            <p>Active Users</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col3:
-        st.markdown("""
-        <div style="
-            background:#111827;
-            padding:20px;
-            border-radius:15px;
-        ">
-            <h2>1,294</h2>
-            <p>Total Orders</p>
-        </div>
-        """, unsafe_allow_html=True)
-
-    with col4:
-        st.markdown("""
-        <div style="
-            background:#111827;
-            padding:20px;
-            border-radius:15px;
-        ">
-            <h2>45.2K</h2>
-            <p>Page Views</p>
-        </div>
-        """, unsafe_allow_html=True)
-         chart_data = pd.DataFrame({
-        "Day": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-        "Revenue": [4000,5000,4800,6200,7200,8500,6100]
-    })
-
-    fig = px.line(
-        chart_data,
-        x="Day",
-        y="Revenue"
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
 # MAIN HEADER
 st.title("AI Ecommerce Assistant")
 
@@ -153,10 +89,15 @@ if st.button("Generate AI Content"):
     result = response.choices[0].message.content
 
     st.success("AI Content Generated")
-
+keywords = [
+    "amazon seo",
+    "ecommerce",
+    "product research",
+    "branding",
+    "market analysis",
+]
     st.markdown("## Generated Content")
     st.write(result)
-    st.write(description)
 
     # KEYWORDS
     st.subheader("Suggested Keywords")
