@@ -68,3 +68,18 @@ This project documents my experiments with combining:
 ## Current Status
 
 Early-stage public experimentation project exploring practical AI-assisted ecommerce systems.
+# MarketAI — Ecommerce Intelligence Platform
+
+AI-powered ecommerce analytics and product intelligence dashboard built with:
+
+- Streamlit
+- OpenAI
+- Plotly
+- Python
+
+Features:
+- Market intelligence
+- Competitor analysis
+- Predictive analytics
+- AI-generated ecommerce insights
+- Dashboard reporting
