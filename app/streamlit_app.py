@@ -4,19 +4,47 @@ import pandas as pd
 import plotly.express as px
 from openai import OpenAI
 
+# ======================================================
 # OPENAI
+# ======================================================
+
 client = OpenAI(
     api_key=st.secrets["OPENAI_API_KEY"]
 )
 
-# PAGE
+# ======================================================
+# PAGE CONFIG
+# ======================================================
+
 st.set_page_config(
-    page_title="AI Ecommerce Assistant",
+    page_title="MarketAI",
     layout="wide"
 )
 
+# ======================================================
 # SIDEBAR
+# ======================================================
+
 st.sidebar.title("MarketAI")
+
+st.sidebar.success("System Online")
+
+st.sidebar.metric(
+    "Live Users",
+    "248"
+)
+
+st.sidebar.metric(
+    "Tracked Products",
+    "12.4K"
+)
+
+st.sidebar.metric(
+    "Market Alerts",
+    "38"
+)
+
+st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigation",
@@ -31,12 +59,16 @@ page = st.sidebar.radio(
     ]
 )
 
+# ======================================================
 # HEADER
+# ======================================================
+
 st.title("AI Ecommerce Assistant")
 
 st.markdown("""
 Generate ecommerce product insights,
-market analysis, SEO ideas,
+market analysis,
+SEO ideas,
 and trend intelligence.
 """)
 
@@ -50,14 +82,49 @@ if page == "Dashboard":
 
     col1, col2, col3, col4 = st.columns(4)
 
-    col1.metric("Revenue", "$42,580", "+12.5%")
-    col2.metric("Users", "2,847", "+8.2%")
-    col3.metric("Orders", "1,294", "-3.1%")
-    col4.metric("Page Views", "45.2K", "+15.8%")
+    col1.metric(
+        "Revenue",
+        "$42,580",
+        "+12.5%"
+    )
+
+    col2.metric(
+        "Users",
+        "2,847",
+        "+8.2%"
+    )
+
+    col3.metric(
+        "Orders",
+        "1,294",
+        "-3.1%"
+    )
+
+    col4.metric(
+        "Page Views",
+        "45.2K",
+        "+15.8%"
+    )
 
     chart_data = pd.DataFrame({
-        "Day": ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
-        "Revenue": [4200,5100,4800,6200,7300,8600,6400]
+        "Day": [
+            "Mon",
+            "Tue",
+            "Wed",
+            "Thu",
+            "Fri",
+            "Sat",
+            "Sun"
+        ],
+        "Revenue": [
+            4200,
+            5100,
+            4800,
+            6200,
+            7300,
+            8600,
+            6400
+        ]
     })
 
     fig = px.area(
@@ -66,7 +133,10 @@ if page == "Dashboard":
         y="Revenue"
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
 
 # ======================================================
 # ANALYTICS
@@ -77,18 +147,42 @@ if page == "Analytics":
     st.title("Analytics")
 
     analytics_data = pd.DataFrame({
-        "Month": ["Jan","Feb","Mar","Apr","May","Jun"],
-        "Organic": [2000,3000,9000,4000,5000,3500],
-        "Paid": [4000,2500,2000,3000,1800,2200]
+        "Month": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun"
+        ],
+        "Organic": [
+            2000,
+            3000,
+            9000,
+            4000,
+            5000,
+            3500
+        ],
+        "Paid": [
+            4000,
+            2500,
+            2000,
+            3000,
+            1800,
+            2200
+        ]
     })
 
     fig = px.line(
         analytics_data,
         x="Month",
-        y=["Organic","Paid"]
+        y=["Organic", "Paid"]
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
 
 # ======================================================
 # BATTLEFIELD
@@ -100,9 +194,17 @@ if page == "Battlefield":
 
     st.subheader("Competitor Analysis")
 
-    st.success("Premium segment gap detected")
-    st.warning("Competitor pricing too high")
-    st.info("EU expansion opportunity found")
+    st.success(
+        "Premium segment gap detected"
+    )
+
+    st.warning(
+        "Competitor pricing too high"
+    )
+
+    st.info(
+        "EU expansion opportunity found"
+    )
 
     st.progress(75)
 
@@ -117,24 +219,39 @@ if page == "Products":
     col1, col2, col3 = st.columns(3)
 
     with col1:
+
         st.image(
             "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500"
         )
-        st.subheader("Steel Bottle")
+
+        st.subheader(
+            "Steel Bottle"
+        )
+
         st.progress(94)
 
     with col2:
+
         st.image(
             "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500"
         )
-        st.subheader("Travel Mug")
+
+        st.subheader(
+            "Travel Mug"
+        )
+
         st.progress(87)
 
     with col3:
+
         st.image(
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"
         )
-        st.subheader("Desk Organizer")
+
+        st.subheader(
+            "Desk Organizer"
+        )
+
         st.progress(79)
 
 # ======================================================
@@ -200,16 +317,19 @@ if page == "Market Intelligence":
             )
 
             if trend_data[keyword].mean() > 50:
+
                 st.success(
                     "🔥 High Opportunity Product"
                 )
 
             elif trend_data[keyword].mean() > 25:
+
                 st.warning(
                     "⚡ Growing Market"
                 )
 
             else:
+
                 st.error(
                     "❌ Weak Market Demand"
                 )
@@ -225,6 +345,8 @@ if page == "Market Intelligence":
         )
 
     st.markdown("---")
+
+    # MARKET OPPORTUNITY
 
     competition_score = 32
     margin_score = 78
@@ -254,85 +376,98 @@ if page == "Market Intelligence":
     st.info(
         "AI detected strong branding potential in this niche."
     )
-st.markdown("---")
 
-st.subheader("Advanced Opportunity Scanner")
+    st.markdown("---")
 
-col1, col2 = st.columns(2)
+    # ADVANCED OPPORTUNITY SCANNER
 
-with col1:
-
-    st.metric(
-        "Saturation Score",
-        "28/100"
+    st.subheader(
+        "Advanced Opportunity Scanner"
     )
 
-    st.progress(28)
+    col1, col2 = st.columns(2)
 
-    st.metric(
-        "Viral Potential",
-        "74/100"
+    with col1:
+
+        st.metric(
+            "Saturation Score",
+            "28/100"
+        )
+
+        st.progress(28)
+
+        st.metric(
+            "Viral Potential",
+            "74/100"
+        )
+
+        st.progress(74)
+
+    with col2:
+
+        st.metric(
+            "Competition Level",
+            "32/100"
+        )
+
+        st.progress(32)
+
+        st.metric(
+            "Branding Strength",
+            "85/100"
+        )
+
+        st.progress(85)
+
+    st.success(
+        "AI detected premium positioning opportunity."
     )
 
-    st.progress(74)
+    st.markdown("---")
 
-with col2:
+    # TRENDING PRODUCT DATABASE
 
-    st.metric(
-        "Competition Level",
-        "32/100"
+    st.subheader(
+        "Trending Product Database"
     )
 
-    st.progress(32)
+    products = [
+        {
+            "name": "Pet Water Bottle",
+            "price": "$24",
+            "trend": "+31%",
+            "score": 92
+        },
+        {
+            "name": "Travel Mug",
+            "price": "$19",
+            "trend": "+24%",
+            "score": 87
+        },
+        {
+            "name": "Desk Organizer",
+            "price": "$34",
+            "trend": "+18%",
+            "score": 79
+        }
+    ]
 
-    st.metric(
-        "Branding Strength",
-        "85/100"
-    )
+    for product in products:
 
-    st.progress(85)
+        st.markdown(f"""
+### {product['name']}
 
-st.success(
-    "AI detected premium positioning opportunity."
-)
-st.markdown("---")
+Price: {product['price']}
 
-st.subheader("Trending Product Database")
+Trend Growth: {product['trend']}
 
-products = [
-    {
-        "name": "Pet Water Bottle",
-        "price": "$24",
-        "trend": "+31%",
-        "score": 92
-    },
-    {
-        "name": "Travel Mug",
-        "price": "$19",
-        "trend": "+24%",
-        "score": 87
-    },
-    {
-        "name": "Desk Organizer",
-        "price": "$34",
-        "trend": "+18%",
-        "score": 79
-    }
-]
+Opportunity Score: {product['score']}/100
+        """)
 
-for product in products:
+        st.progress(
+            product["score"]
+        )
 
-    st.markdown(f"""
-    ### {product['name']}
-
-    Price: {product['price']}
-
-    Trend Growth: {product['trend']}
-
-    Opportunity Score: {product['score']}/100
-    """)
-
-    st.progress(product["score"])
 # ======================================================
 # AI COPILOT
 # ======================================================
@@ -347,45 +482,30 @@ if page == "AI Copilot":
 
     if st.button("Analyze Market"):
 
-        try:
+        fake_ai_response = f"""
+# Market Analysis
 
-            ai_prompt = f"""
-            You are an ecommerce market intelligence AI.
+## Niche Potential
+The {user_question} niche shows strong growth potential.
 
-            User question:
-            {user_question}
+## Market Opportunity
+- Growing search demand
+- Moderate competition
+- Strong branding potential
 
-            Give strategic ecommerce insights,
-            trends, opportunities,
-            pricing advice,
-            and branding suggestions.
-            """
+## Suggested Strategy
+Focus on premium branding,
+social proof,
+and bundle offers.
+        """
 
-            ai_response = client.chat.completions.create(
-                model="gpt-4.1-mini",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": ai_prompt
-                    }
-                ]
-            )
+        st.success(
+            "Analysis Complete"
+        )
 
-            ai_result = ai_response.choices[0].message.content
-
-            st.success("Analysis Complete")
-
-            st.write(ai_result)
-
-        except:
-
-            st.error(
-                "OpenAI API limit reached."
-            )
-
-            st.info(
-                "AI Copilot temporarily unavailable."
-            )
+        st.write(
+            fake_ai_response
+        )
 
 # ======================================================
 # SETTINGS
@@ -395,8 +515,28 @@ if page == "Settings":
 
     st.title("Settings")
 
-    st.toggle("Enable AI Copilot")
-    st.toggle("Enable Live Market Data")
-    st.toggle("Dark Mode")
+    st.toggle(
+        "Enable AI Copilot"
+    )
 
-    st.success("Settings saved")
+    st.toggle(
+        "Enable Live Market Data"
+    )
+
+    st.toggle(
+        "Dark Mode"
+    )
+
+    st.success(
+        "Settings saved"
+    )
+
+# ======================================================
+# FOOTER
+# ======================================================
+
+st.markdown("---")
+
+st.caption(
+    "MarketAI v1.0 — Ecommerce Intelligence Platform"
+)
