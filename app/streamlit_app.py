@@ -268,7 +268,7 @@ final_score = int(
     )
 )
             st.markdown(f"""
-            """)
+          
 ### {title}
 
 Price: ${price}
@@ -282,7 +282,7 @@ Competition: {competition_score}/100
 Margin Potential: {margin_score}/100
 
 Market Opportunity Score: {final_score}/100
-
+  """)
              st.progress(final_score)
     except:
 
