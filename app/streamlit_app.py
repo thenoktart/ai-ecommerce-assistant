@@ -243,7 +243,18 @@ try:
         response.content,
         "html.parser"
     )
+products = soup.find_all(
+    "span",
+    class_="a-size-medium"
+)
 
+st.markdown("---")
+
+st.subheader("Live Amazon Product Results")
+
+for product in products[:5]:
+
+    st.success(product.text)
     st.success(
         "Amazon market scan completed"
     )
