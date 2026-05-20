@@ -254,7 +254,85 @@ if page == "Market Intelligence":
     st.info(
         "AI detected strong branding potential in this niche."
     )
+st.markdown("---")
 
+st.subheader("Advanced Opportunity Scanner")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    st.metric(
+        "Saturation Score",
+        "28/100"
+    )
+
+    st.progress(28)
+
+    st.metric(
+        "Viral Potential",
+        "74/100"
+    )
+
+    st.progress(74)
+
+with col2:
+
+    st.metric(
+        "Competition Level",
+        "32/100"
+    )
+
+    st.progress(32)
+
+    st.metric(
+        "Branding Strength",
+        "85/100"
+    )
+
+    st.progress(85)
+
+st.success(
+    "AI detected premium positioning opportunity."
+)
+st.markdown("---")
+
+st.subheader("Trending Product Database")
+
+products = [
+    {
+        "name": "Pet Water Bottle",
+        "price": "$24",
+        "trend": "+31%",
+        "score": 92
+    },
+    {
+        "name": "Travel Mug",
+        "price": "$19",
+        "trend": "+24%",
+        "score": 87
+    },
+    {
+        "name": "Desk Organizer",
+        "price": "$34",
+        "trend": "+18%",
+        "score": 79
+    }
+]
+
+for product in products:
+
+    st.markdown(f"""
+    ### {product['name']}
+
+    Price: {product['price']}
+
+    Trend Growth: {product['trend']}
+
+    Opportunity Score: {product['score']}/100
+    """)
+
+    st.progress(product["score"])
 # ======================================================
 # AI COPILOT
 # ======================================================
