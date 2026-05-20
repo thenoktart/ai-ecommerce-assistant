@@ -191,3 +191,40 @@ if page == "Products":
         st.subheader("Desk Organizer")
         st.write("Demand: 79")
         st.progress(79)
+# AI COPILOT
+st.markdown("---")
+
+st.subheader("AI Copilot")
+
+user_question = st.text_input(
+    "Ask MarketAI something..."
+)
+
+if st.button("Analyze Market"):
+
+    ai_prompt = f"""
+    You are an ecommerce market intelligence AI.
+
+    User question:
+    {user_question}
+
+    Give strategic ecommerce insights,
+    trends, opportunities, pricing advice,
+    and branding suggestions.
+    """
+
+    ai_response = client.chat.completions.create(
+        model="gpt-4.1-mini",
+        messages=[
+            {
+                "role": "user",
+                "content": ai_prompt
+            }
+        ]
+    )
+
+    ai_result = ai_response.choices[0].message.content
+
+    st.success("Analysis Complete")
+
+    st.write(ai_result)
