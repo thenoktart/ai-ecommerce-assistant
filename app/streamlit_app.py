@@ -216,7 +216,7 @@ if page == "Battlefield":
 
 if page == "Products":
 
-st.markdown("---")
+     st.markdown("---")
 
 st.subheader("Amazon Product Research")
 
