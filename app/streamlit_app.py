@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
-import ploty.express as px 
+import plotly.express as px
 from openai import OpenAI
+
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 st.set_page_config(
@@ -90,17 +91,17 @@ if st.button("Generate AI Content"):
 
     st.success("AI Content Generated")
 
-keywords = [
-    "amazon seo",
-    "ecommerce",
-    "product research",
-    "branding",
-    "market analysis",
-]
-   st.markdown("## Generated Content")
-   st.write(result)
+    st.markdown("## Generated Content")
+    st.write(result)
 
-    # KEYWORDS
+    keywords = [
+        "amazon seo",
+        "ecommerce",
+        "product research",
+        "branding",
+        "market analysis",
+    ]
+
     st.subheader("Suggested Keywords")
 
     for keyword in keywords:
@@ -109,7 +110,8 @@ keywords = [
     st.markdown("---")
 
     st.info("AI workflow completed successfully.")
-    # PAGE
+
+# DASHBOARD
 if page == "Dashboard":
 
     st.title("Dashboard")
@@ -120,15 +122,16 @@ if page == "Dashboard":
     col2.metric("Users", "2,847", "+8.2%")
     col3.metric("Orders", "1,294", "-3.1%")
     col4.metric("Page Views", "45.2K", "+15.8%")
-    #ANALYTICS
+
+# ANALYTICS
 if page == "Analytics":
 
     st.title("Analytics")
 
     analytics_data = pd.DataFrame({
-        "Month": ["Jan","Feb","Mar","Apr","May","Jun"],
-        "Organic": [2000,3000,9000,4000,5000,3500],
-        "Paid": [4000,2500,2000,3000,1800,2200]
+        "Month": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+        "Organic": [2000, 3000, 9000, 4000, 5000, 3500],
+        "Paid": [4000, 2500, 2000, 3000, 1800, 2200]
     })
 
     fig = px.line(
@@ -138,7 +141,8 @@ if page == "Analytics":
     )
 
     st.plotly_chart(fig, use_container_width=True)
-    #BATTLEFIELD
+
+# BATTLEFIELD
 if page == "Battlefield":
 
     st.title("Battlefield")
@@ -152,7 +156,8 @@ if page == "Battlefield":
     st.progress(75)
 
     st.write("Market Share Strength")
-    #MARKET INTELLIGENCE
+
+# MARKET INTELLIGENCE
 if page == "Market Intelligence":
 
     st.title("Global Market Intelligence")
@@ -162,14 +167,3 @@ if page == "Market Intelligence":
     col1.metric("Global Demand", "23%", "Strong Growth")
     col2.metric("Competition", "Low")
     col3.metric("Premium Opp.", "High")
-
-if page == "Dashboard":
-
-    st.title("Dashboard")
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    col1.metric("Revenue", "$42,580", "+12.5%")
-    col2.metric("Users", "2,847", "+8.2%")
-    col3.metric("Orders", "1,294", "-3.1%")
-    col4.metric("Page Views", "45.2K", "+15.8%")
