@@ -1,3 +1,4 @@
+from pytrends.request import TrendReq
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -162,11 +163,58 @@ if page == "Market Intelligence":
 
     st.title("Global Market Intelligence")
 
-    col1, col2, col3 = st.columns(3)
+    pytrends = TrendReq()
 
-    col1.metric("Global Demand", "23%", "Strong Growth")
-    col2.metric("Competition", "Low")
-    col3.metric("Premium Opp.", "High")
+    keyword = st.text_input(
+        "Search Product Trend",
+        "pet water bottle"
+    )
+
+    kw_list = [keyword]
+
+    pytrends.build_payload(
+        kw_list,
+        timeframe='today 12-m'
+    )
+
+    trend_data = pytrends.interest_over_time()
+
+    if not trend_data.empty:
+
+        st.subheader("Trend Growth")
+
+        fig = px.line(
+            trend_data,
+            y=keyword,
+            title=f"{keyword} Trend Analysis"
+        )
+
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
+
+        col1, col2, col3 = st.columns(3)
+
+        col1.metric(
+            "Trend Score",
+            f"{trend_data[keyword].mean():.0f}"
+        )
+
+        col2.metric(
+            "Peak Demand",
+            f"{trend_data[keyword].max()}"
+        )
+
+        col3.metric(
+            "Market Status",
+            "Growing"
+        )
+
+        st.success("Real Google Trends data loaded")
+
+    else:
+        st.warning("No trend data found")
 # PRODUCTS
 if page == "Products":
 
