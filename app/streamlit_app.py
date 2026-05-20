@@ -268,6 +268,7 @@ final_score = int(
     )
 )
             st.markdown(f"""
+            """)
 ### {title}
 
 Price: ${price}
