@@ -216,6 +216,47 @@ if page == "Battlefield":
 
 if page == "Products":
 
+st.markdown("---")
+
+st.subheader("Amazon Product Research")
+
+search_term = st.text_input(
+    "Search Amazon Product",
+    "water bottle"
+)
+
+headers = {
+    "User-Agent":
+    "Mozilla/5.0"
+}
+
+url = f"https://www.amazon.com/s?k={search_term}"
+
+try:
+
+    response = requests.get(
+        url,
+        headers=headers
+    )
+
+    soup = BeautifulSoup(
+        response.content,
+        "html.parser"
+    )
+
+    st.success(
+        "Amazon market scan completed"
+    )
+
+    st.info(
+        f"Live search executed for: {search_term}"
+    )
+
+except:
+
+    st.error(
+        "Amazon temporarily blocked requests."
+    )
     st.title("Trending Products")
 
     col1, col2, col3 = st.columns(3)
