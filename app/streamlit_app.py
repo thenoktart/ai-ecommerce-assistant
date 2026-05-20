@@ -212,9 +212,15 @@ if page == "Market Intelligence":
         )
 
         st.success("Real Google Trends data loaded")
+if trend_data[keyword].mean() > 50:
+    st.success("🔥 High Opportunity Product")
 
-    else:
-        st.warning("No trend data found")
+elif trend_data[keyword].mean() > 25:
+    st.warning("⚡ Growing Market")
+
+else:
+    st.error("❌ Weak Market Demand")
+    
 # PRODUCTS
 if page == "Products":
 
